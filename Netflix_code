@@ -1,0 +1,51 @@
+
+import pandas as pd
+!pip install pandas
+net=pd.read_csv(r"D:\Data Analysis\Python Project\Netflix\netflix.csv") #Load file into 'net'
+net
+  net.duplicated(keep=False)                                            #to show duplicates
+
+                                                                        #we can also set the parameter inside the duplicated function
+net.drop_duplicates(inplace=True)                                       #now removing duplicates in the exsisting framework.
+net.isnull()                                                            #to check the null vaues
+net['Category'].max()                                                   #to view the max of category
+
+net.isnull().sum()                                                      #to see the count of null values in each column
+
+import seaborn as sns
+!pip install seaborn
+import seaborn as sns
+sns.heatmap(net.isnull())                                               #Visualise using heatmaps
+net
+net[net['Title'].isin(['House of Cards'])]                              #isin function used to search and mark out particular thing
+net[net['Title'].str.contains('House of Cards')]                        #same like isin function.
+net['Date_N'] = pd.to_datetime(net['Release_Date'], errors='coerce')    #filter using datetime function
+net['Date_N'].dt.year.value_counts()                                    #dt.year is used to extrach the year from data fromat,where is valuecount functionis used to
+                                                                        #count the values and count function is used count the particular cell
+net['Date_N'].dt.year.value_counts().plot(kind='bar')
+
+net['Category'].count()
+net.groupby('Country').Category.count()                                 #group the category and count each category
+sns.countplot(net['Category'])                                          #to show the unique values of any column
+net[(net['Category']=='Movie') & (net['Date_N'].dt.year==2020)]         #using and,or operatos for filteration
+net[(net['Country']=='India') & (net['Category']=='TV Show')]['Title']
+net['Director'].value_counts().head(10)
+net[((net['Category']=='Movie') & (net['Type'].isin(['Comedies']))) | (net['Country'].isin(['United Kingdom']))]
+net[net['Cast'].isin(['Tom Cruise'])]
+
+nett=net.dropna()                                                      # drop rows with missing values
+nett.head(2)
+nett[nett['Cast'].str.contains('Tom Cruise')]
+nett['Rating'].nunique()                                               #it shows number of value
+nett['Rating'].unique()                                                #it shows all unique values
+nett[(nett['Rating']=='TV-14') & (nett['Category']=='Movie') & (nett['Country']=='Canada')].shape
+nett[(nett['Rating']=='R') & (nett['Category']=='TV Show')]
+nett['Duration'].max()                                                 #to show the maximum duration
+net[['Minutes','Units']]=net['Duration'].str.split(' ',expand=True)
+net.head(2)
+net['Minutes'].max()
+net['Minutes']=net['Minutes'].astype(str).astype(int)                  #convert object into integer
+net['Minutes'].max()
+net.sort_values(by='Date_N').head(2)
+net.sort_values(by='Date_N',ascending=False).head(2)                    #sort by descending order
+nett[(nett['Category']=='Movie') & (nett['Type']=='Dramas')]
