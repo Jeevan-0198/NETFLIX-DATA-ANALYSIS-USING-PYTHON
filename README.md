@@ -8,3 +8,8 @@ Includes fileds such as Show_Id,Category,Title,Director,Cast,Country,Release_Dat
 ### Libraries Used:
 - **Pandas**(Pandas used for Data Cleaning),
 - **Matplotlib**(Matplotlib used for Data Visualisation)
+### Data Cleaning
+- First, I removed duplicates using the drop_duplicates() function.
+- Next, I identified, visualized, and removed null values to ensure data completeness.
+- I extracted and separated the Date column to facilitate better analysis and visualized year-wise data trends.
+- I identified unique values in relevant columns as part of the data cleaning process to ensure consistency and accuracy.
