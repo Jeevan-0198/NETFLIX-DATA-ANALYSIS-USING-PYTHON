@@ -22,8 +22,8 @@ Includes fileds such as Show_Id,Category,Title,Director,Cast,Country,Release_Dat
    - I visualise categories-wise data using Horizontal bar charts.  
   ![image](https://github.com/user-attachments/assets/98d8cd44-5fcd-4e4e-b6f1-276b517bce0c)
 
-###Filters
-Various filtering functions were used to refine and extract relevant data efficiently.
+### Filters
+Various filtering functions were used to refine and extract relevant data efficiently.  
 **Examples:**
 - to_datetime(): Used to convert and extract date and time information.
 - isin() and str.contains(): Applied to filter specific strings within the dataset.
